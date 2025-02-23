@@ -34,7 +34,7 @@ sudo reboot
 
 Then, Run the installer script with the curl command below, to set up btwifiset on your Pi.
 ```
-curl  -L https://raw.githubusercontent.com/nksan/Rpi-SetWiFi-viaBluetooth/main/btwifisetInstall.sh | bash
+curl  -L https://raw.githubusercontent.com/ochaari/Rpi-WifiSetter/main/btwifisetInstall.sh | bash
 ```
 
 What the installer does:

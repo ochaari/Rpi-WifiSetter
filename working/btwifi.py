@@ -1,4 +1,3 @@
-
 import argparse
 import dbus
 import dbus.service
@@ -12,6 +11,7 @@ import json
 import wifiwpa as wifi
 import btcrypto as crypt
 import subprocess
+import configparser
 
 
 SEPARATOR_HEX = b'\x1e'
@@ -706,6 +706,12 @@ class WifiSetService(Service):
                 self.mgr.wifi_connect(True)
             elif val[1] == 'DISCONN':
                 self.mgr.disconnect()
+            elif val[1] == 'CARD_UUID':
+                config = configparser.ConfigParser()
+                config.read('/home/pi/green-stream-card/config.properties')
+                username = config['DEFAULT']['USERNAME']
+                Log.log(f'USERNAME from config: {username}')
+                self.notifications.setNotification(username,"card_uuid")
             elif val[1] == 'AP2s':
                 #version2 sends AP2s and gets a json object back:
                 #note: since version never reads APs one by one, self.AP_list is always empty
