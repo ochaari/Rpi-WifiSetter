@@ -2657,7 +2657,7 @@ class WifiSetService(Service):
                 self.mgr.disconnect()
             elif val[1] == 'CARD_UUID':
                 config = configparser.ConfigParser()
-                config.read('/home/pi/green-stream-card/config.properties')
+                config.read('/home/pi/green_stream_card/config.properties')
                 username = config['DEFAULT']['USERNAME']
                 mLOG.log(f'USERNAME from config: {username}')
                 self.notifications.setNotification(username,"card_uuid")
